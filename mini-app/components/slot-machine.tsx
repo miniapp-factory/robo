@@ -47,14 +47,17 @@ export function SlotMachine() {
 
   // win condition inline
   const win =
-    // rows
-    (grid[0][0] === grid[0][1] && grid[0][1] === grid[0][2]) ||
-    (grid[1][0] === grid[1][1] && grid[1][1] === grid[1][2]) ||
-    (grid[2][0] === grid[2][1] && grid[2][1] === grid[2][2]) ||
-    // columns
-    (grid[0][0] === grid[1][0] && grid[1][0] === grid[2][0]) ||
-    (grid[0][1] === grid[1][1] && grid[1][1] === grid[2][1]) ||
-    (grid[0][2] === grid[1][2] && grid[1][2] === grid[2][2]);
+    grid.length === 3 &&
+    (
+      // rows
+      (grid[0][0] === grid[1][0] && grid[1][0] === grid[2][0]) ||
+      (grid[0][1] === grid[1][1] && grid[1][1] === grid[2][1]) ||
+      (grid[0][2] === grid[1][2] && grid[1][2] === grid[2][2]) ||
+      // columns
+      (grid[0][0] === grid[0][1] && grid[0][1] === grid[0][2]) ||
+      (grid[1][0] === grid[1][1] && grid[1][1] === grid[1][2]) ||
+      (grid[2][0] === grid[2][1] && grid[2][1] === grid[2][2])
+    );
 
   return (
     <div className="flex flex-col items-center gap-4">
